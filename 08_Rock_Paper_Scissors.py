@@ -64,8 +64,8 @@ def playAgain():
 
 while True:
     computer = opponentSelection()
-    player = getPlayerInput()
-    if player != 'rock' and player != 'scissors' and player != 'paper':
+    player = ''
+    while player != 'rock' and player != 'scissors' and player != 'paper':
         player = getPlayerInput()
     determineWinner(player, computer)
     if not playAgain():

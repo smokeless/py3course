@@ -34,7 +34,7 @@ def printMessage(name, age):
 print('Please input your name.')
 name = input('>>')
 
-print('Please input your age.')
+print('Please input the age you will be this year.')
 age = input('>>')
 
 

@@ -54,7 +54,7 @@ def playAgain():
     print('play again?')
     uInput = input('[y/n] ')
 
-    if uInput != 'y' && uInput != 'n':
+    if uInput != 'y' and uInput != 'n':
         print('invalid input')
         playAgain()
 

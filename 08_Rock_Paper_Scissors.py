@@ -27,7 +27,6 @@ def getPlayerInput():
     uInput.lower()
     if not uInput in moves.values():
         print("not a valid input.")
-        getPlayerInput()
     return uInput
 
 def determineWinner( player, computer ):
@@ -66,6 +65,8 @@ def playAgain():
 while True:
     computer = opponentSelection()
     player = getPlayerInput()
+    if player != 'rock' and player != 'scissors' and player != 'paper':
+        player = getPlayerInput()
     determineWinner(player, computer)
     if not playAgain():
         break

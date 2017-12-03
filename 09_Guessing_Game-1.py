@@ -11,10 +11,40 @@ Keep track of how many guesses the user has taken,
 and when the game ends, print this out."""
 import random
 
-def genNumber():
-    return random.randint(1,9)
-
 def getInput():
     print("I'm thinking of a number from 1 to 9")
     uInput = input('>> ')
+    return uInput
+
+def checkInt(input):
+    try:
+        int(input)
+        return True
+    except ValueError:
+        return False
+
+guesses = 0
+wins = 0
+number = random.randint(1,9)
+
+while True:
+    uInput = getInput()
+    if uInput == 'exit':
+        print('You guessed', guesses, 'times.')
+        exit(1)
+
+    uInput = int(uInput)
+    if uInput == number:
+        wins += 1
+        print('you guessed it!')
+        print('you have won', wins, 'times')
+    if uInput < number:
+        guesses += 1
+        print('the number is higher.')
+
+    if uInput > number:
+        guesses +=1
+        print('the number is lower.')
+
+
 

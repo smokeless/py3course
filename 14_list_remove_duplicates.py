@@ -11,14 +11,15 @@ Go back and do Exercise 5 using sets, and write the
 solution for that in a different function.
 '''
 
-def returnSet(list):
-    return list(set(list))
+def returnSet(aList):
+    return list(set(aList))
 
-def returnUnique(list):
+def returnUnique(aList):
     newList = []
-    [newList.append(item) for item in list if item not in newList]
+    [newList.append(item) for item in aList if item not in newList]
+    return newList
 
-list = [1, 1, 1, 2, 2, 3, 5, 8]
+myList = [1, 1, 1, 2, 2, 3, 5, 8]
 
-print(returnSet(list))
-print(returnUnique(list))
+print(returnSet(myList))
+print(returnUnique(myList))

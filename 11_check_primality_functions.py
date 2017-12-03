@@ -17,7 +17,8 @@ def getInput():
     return int(uInput)
 
 def isPrime(number):
-    for i in range(2, (number-1 )):
+    number = int((number/2)+1)
+    for i in range(2, number):
         if number % i == 0:
             print(number, 'divisible by', i)
             return False

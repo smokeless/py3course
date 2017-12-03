@@ -14,6 +14,16 @@ import random
 def getInput():
     print("I'm thinking of a number from 1 to 9")
     uInput = input('>> ')
+    if uInput == 'exit':
+        print('You guessed', guesses, 'times.')
+        print('You won', wins, 'times' )
+        exit(0)
+
+    try:
+        int(uInput)
+    except:
+        print('invalid input.')
+        uInput = getInput()
     return uInput
 
 def checkInt(input):

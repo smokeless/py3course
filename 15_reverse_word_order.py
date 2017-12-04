@@ -10,12 +10,14 @@ Then I would see the string:
   Michele is name My
 shown back to me.
 '''
+def reverseInput(longString):
+    for i in longString[::-1]:
+        print(i, end=' ')
+    print()
 
 print('what shall i reverse?')
 uInput = input('>> ')
 uInput = uInput.split()
-print(type(uInput))
+reverseInput(uInput)
 
-for i in uInput[::-1]:
-    print(i, end=' ')
-print()
+

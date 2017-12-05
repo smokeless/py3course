@@ -27,4 +27,11 @@ def makeRequest():
 
 
 print('Input 1 for single space. 2 for double space.')
-getTitles(makeRequest())
+uInput = input('>> ')
+
+if uInput == '1':
+    getTitles(makeRequest())
+elif uInput == '2':
+    getTitles(makeRequest(), True )
+else:
+    exit(1)

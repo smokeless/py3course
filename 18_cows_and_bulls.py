@@ -6,10 +6,10 @@ Randomly generate a 4-digit number.
 
 Ask the user to guess a 4-digit number.
 
-For every digit that the user guessed correctly in the correct place,
+For every digit that the user guessed correctly in the wrong place,
 they have a “cow”.
 
-For every digit the user guessed correctly in the wrong place is a “bull.”
+For every digit the user guessed correctly in the right place is a “bull.”
 
 Every time the user makes a guess, tell them how many “cows”
 and “bulls” they have.
@@ -79,4 +79,7 @@ if __name__ == '__main__':
         print('bulls', bulls)
         print('cows', cows)
         guesses += 1
-        print(guesses)
+        print('guesses', guesses)
+        if bulls == 4:
+            print('you won!')
+            exit(0)

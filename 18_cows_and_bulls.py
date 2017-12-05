@@ -53,16 +53,28 @@ def checkCows(userNumber, computerNumber):
             cowNumber += 1
     return cowNumber
 
+def parseInput():
+    uInput = input('>> ')
+    if uInput.isdigit() and len(uInput)==4:
+        return uInput
+    else:
+        print('not a valid number.')
+        parseInput()
 
 if __name__ == '__main__':
     print("I will come up with a four digit number. You guess the",
           "number. Every digit you guess correctly in the wrong",
-          "place is a bull. Every digit you guess correctly in ",
-          "the right place is a cow.")
+          "place is a cow. Every digit you guess correctly in ",
+          "the right place is a bull.")
     computerNumber = generateNumber()
-    print(computerNumber)
-    bulls = checkBulls('1234', computerNumber)
-    cows  = checkCows('1234', computerNumber)
-    cows = cows - bulls
-    print('bulls', bulls)
-    print('cows', cows)
+    guesses = 0
+    while True:
+        myNumber = parseInput()
+        print(computerNumber)
+        bulls = checkBulls(myNumber, computerNumber)
+        cows  = checkCows(myNumber, computerNumber)
+        cows = cows - bulls
+        print('bulls', bulls)
+        print('cows', cows)
+        guesses += 1
+        print(guesses)

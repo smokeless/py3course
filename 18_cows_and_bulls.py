@@ -46,6 +46,12 @@ def checkBulls(userNumber, computerNumber):
             bullNumber += 1
     return bullNumber
 
+def checkCows(userNumber, computerNumber):
+    cowNumber = 0
+    for char in userNumber:
+        if char in computerNumber:
+            cowNumber += 1
+    return cowNumber
 
 
 if __name__ == '__main__':
@@ -53,5 +59,10 @@ if __name__ == '__main__':
           "number. Every digit you guess correctly in the wrong",
           "place is a bull. Every digit you guess correctly in ",
           "the right place is a cow.")
-    print(generateNumber())
-    print(checkBulls('1234', '1234'))
+    computerNumber = generateNumber()
+    print(computerNumber)
+    bulls = checkBulls('1234', computerNumber)
+    cows  = checkCows('1234', computerNumber)
+    cows = cows - bulls
+    print('bulls', bulls)
+    print('cows', cows)

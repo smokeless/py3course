@@ -48,8 +48,10 @@ def checkBulls(userNumber, computerNumber):
 
 def checkCows(userNumber, computerNumber):
     cowNumber = 0
+    matches = ''
     for char in userNumber:
         if char in computerNumber:
+            matches += char
             cowNumber += 1
     return cowNumber
 

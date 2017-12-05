@@ -61,7 +61,7 @@ def parseInput():
         return uInput
     else:
         print('not a valid number.')
-        parseInput()
+        return False
 
 if __name__ == '__main__':
     print("I will come up with a four digit number. You guess the",
@@ -72,6 +72,8 @@ if __name__ == '__main__':
     guesses = 0
     while True:
         myNumber = parseInput()
+        while myNumber == False:
+            myNumber = parseInput()
         print(computerNumber)
         bulls = checkBulls(myNumber, computerNumber)
         cows  = checkCows(myNumber, computerNumber)

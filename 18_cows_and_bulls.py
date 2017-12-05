@@ -81,5 +81,6 @@ if __name__ == '__main__':
         guesses += 1
         print('guesses', guesses)
         if bulls == 4:
+            print('the number was,', computerNumber)
             print('you won!')
             exit(0)

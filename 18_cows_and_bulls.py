@@ -39,7 +39,13 @@ def generateNumber():
         number = number + randString
     return number
 
-def checkCows(number):
+def checkBulls(userNumber, computerNumber):
+    bullNumber = 0
+    for char in range(0,4):
+        if userNumber[char] == computerNumber[char]:
+            bullNumber += 1
+    return bullNumber
+
 
 
 if __name__ == '__main__':
@@ -48,3 +54,4 @@ if __name__ == '__main__':
           "place is a bull. Every digit you guess correctly in ",
           "the right place is a cow.")
     print(generateNumber())
+    print(checkBulls('1234', '1234'))

@@ -40,20 +40,15 @@ def generateNumber():
     return number
 
 def checkBulls(userNumber, computerNumber):
-    bullNumber = 0
+    bullCow = [0, 0]
     for char in range(0,4):
-        if userNumber[char] == computerNumber[char]:
-            bullNumber += 1
-    return bullNumber
+        if(userNumber[char] in computerNumber):
+            if userNumber[char] == computerNumber[char]:
+                bullCow[0] += 1
+            else:
+                bullCow[1] += 1
+    return bullCow
 
-def checkCows(userNumber, computerNumber):
-    cowNumber = 0
-    matches = ''
-    for char in userNumber:
-        if char in computerNumber:
-            matches += char
-            cowNumber += 1
-    return cowNumber
 
 def parseInput():
     uInput = input('>> ')
@@ -74,15 +69,12 @@ if __name__ == '__main__':
         myNumber = parseInput()
         while myNumber == False:
             myNumber = parseInput()
-        #print(computerNumber)
         bulls = checkBulls(myNumber, computerNumber)
-        cows  = checkCows(myNumber, computerNumber)
-        cows = cows - bulls
-        print('bulls', bulls)
-        print('cows', cows)
+        print('bulls', bulls[0])
+        print('cows', bulls[1])
         guesses += 1
         print('guesses', guesses)
-        if bulls == 4:
+        if bulls[0] == 4:
             print('the number was,', computerNumber)
             print('you won!')
             exit(0)

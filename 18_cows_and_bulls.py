@@ -74,7 +74,7 @@ if __name__ == '__main__':
         myNumber = parseInput()
         while myNumber == False:
             myNumber = parseInput()
-        print(computerNumber)
+        #print(computerNumber)
         bulls = checkBulls(myNumber, computerNumber)
         cows  = checkCows(myNumber, computerNumber)
         cows = cows - bulls

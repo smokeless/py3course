@@ -40,12 +40,21 @@ def makeRequest():
     return r_html
 
 
-print('Input 1 for single space. 2 for double space.')
+print('Input 1 for single space. 2 for double space. Then a space. Then file name.')
 uInput = input('>> ')
+unparsedRequest = makeRequest()
+uInput = uInput.split()
+try:
+    int(uInput[0])
+except ValueError:
+    print('invalid syntax.')
 
-if uInput == '1':
-    getTitles(makeRequest())
-elif uInput == '2':
-    getTitles(makeRequest(), True )
-else:
-    exit(1)
+
+
+
+#if uInput == '1':
+#    getTitles(makeRequest())
+#elif uInput == '2':
+#    getTitles(makeRequest(), True )
+#else:
+#    exit(1)

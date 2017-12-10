@@ -20,3 +20,35 @@ I talked a little bit about it in this post.
 
 http://www.practicepython.org/assets/Training_01.txt
 '''
+
+import requests
+import os
+#lots of hardcoded stuff. gross, but meets the requirements.
+def getFile():
+    url    = 'http://www.practicepython.org/assets/Training_01.txt'
+    r      = requests.get(url)
+    r_html = r.text
+    with open('textfile.txt', 'w') as txt:
+        txt.write(r_html)
+
+def delFile():
+    try:
+        os.remove('./textfile.txt')
+    except FileNotFoundError:
+        print('File not found!')
+
+def countCategory():
+    getFile()
+    with open('textfile.txt', 'r') as words:
+        txt = words.read()
+    txt = txt.split('/')
+    txt = list(set(txt))
+    cleanedTxt = []
+    for i in txt:
+        if not 'sun' in i and len(i) > 1:
+            cleanedTxt.append(i)
+    cleanedTxt = set(cleanedTxt)
+    print(cleanedTxt)
+    delFile()
+
+countCategory()

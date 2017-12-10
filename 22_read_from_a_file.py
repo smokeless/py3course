@@ -49,6 +49,9 @@ def countCategory():
             cleanedTxt.append(i)
     cleanedTxt = set(cleanedTxt)
     print(cleanedTxt)
+
+
+
     delFile()
 
 countCategory()

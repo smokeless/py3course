@@ -47,10 +47,15 @@ def countCategory():
         if not 'sun' in i and len(i) > 1:
             cleanedTxt.append(i)
     sortedDict = {}
-
-
-
-
+    for i in cleanedTxt:
+        if i in sortedDict:
+            sortedDict[i] += 1
+        else:
+            sortedDict[i] = 1
     delFile()
+    return sortedDict
 
-countCategory()
+
+myDict = countCategory()
+for pair in myDict:
+    print(pair, myDict[pair])

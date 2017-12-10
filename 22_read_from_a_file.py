@@ -42,13 +42,12 @@ def countCategory():
     with open('textfile.txt', 'r') as words:
         txt = words.read()
     txt = txt.split('/')
-    txt = list(set(txt))
     cleanedTxt = []
     for i in txt:
         if not 'sun' in i and len(i) > 1:
             cleanedTxt.append(i)
-    cleanedTxt = set(cleanedTxt)
-    print(cleanedTxt)
+    sortedDict = {}
+
 
 
 

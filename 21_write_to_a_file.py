@@ -23,14 +23,14 @@ a list of all the article titles on the New York Times homepage.
 def getTitles(plainTextHTML, doubleSpace=False):
     '''parse headline titles out'''
     o = BeautifulSoup(plainTextHTML, 'html.parser')
-
+    text = str()
     for title in o.find_all('h2', {'class':'story-heading'}):
         headline = title.getText()
         headline = headline.strip()
-        print(headline)
+        text += headline + '\n'
         if doubleSpace == True:
-            print()
-
+            text += '\n'
+    return text
 
 
 def makeRequest():
@@ -49,8 +49,19 @@ try:
 except ValueError:
     print('invalid syntax.')
 
+flag     = int(uInput[0])
+fileName = uInput[1]
 
+if flag == 1:
+    flag = False
+elif flag == 2:
+    flag = True
+else:
+    print('invalid flag')
+    exit(1)
 
+with open(fileName, 'w') as f:
+    f.write(getTitles(unparsedRequest, flag))
 
 #if uInput == '1':
 #    getTitles(makeRequest())

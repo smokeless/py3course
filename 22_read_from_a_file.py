@@ -18,5 +18,5 @@ part represents the scene category. To do this, you’re going to
 have to remember a bit about string parsing in Python 3.
 I talked a little bit about it in this post.
 
-
+http://www.practicepython.org/assets/Training_01.txt
 '''

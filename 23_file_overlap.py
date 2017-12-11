@@ -28,16 +28,12 @@ def checkForOverLap(f1: str, f2: str)->str:
     fileOne = f1.split()
     fileTwo = f2.split()
     newList = []
-    if len(fileOne) > len(fileTwo):
-        for i in f2:
-            if i in f1:
-                newList.append(i)
-    else:
-        for i in fileOne:
-            if i in fileTwo:
-                newList.append(i)
+    for i in fileOne:
+        if i in fileTwo:
+            newList.append(i)
+
     list(set(newList))
-    overLap = ''.join(newList)
+    overLap = '\n'.join(newList)
     return overLap
 
 

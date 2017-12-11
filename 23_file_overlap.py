@@ -14,13 +14,37 @@ The explanation is easier with an example, which I will describe below.)
 
 import requests
 
-def getFiles():
-    urls    = ['http://www.practicepython.org/assets/primenumbers.txt',
-               'http://www.practicepython.org/assets/happynumbers.txt']
-    r = requests.get(urls[0])
-    primeText = r.text
-    r = requests.get(urls[1])
-    happyText = r.text
-    return (primeText, happyText)
+def getTextFromSiteList(*arg: str)->list:
+    '''In, site urls. Out list of txt of each url.'''
+    siteTxtArray = []
+    for i in arg:
+        r = requests.get(i)
+        txt = r.text
+        siteTxtArray.append(txt)
 
-tuple =
+    return siteTxtArray
+
+def checkForOverLap(f1: str, f2: str)->str:
+    fileOne = f1.split()
+    fileTwo = f2.split()
+    newList = []
+    if len(fileOne) > len(fileTwo):
+        for i in f2:
+            if i in f1:
+                newList.append(i)
+    else:
+        for i in fileOne:
+            if i in fileTwo:
+                newList.append(i)
+
+
+
+
+
+urls    = ['http://www.practicepython.org/assets/primenumbers.txt',
+           'http://www.practicepython.org/assets/happynumbers.txt']
+
+txtList = getTextFromSiteList(urls[0], urls[1])
+primes  = txtList[0]
+happy   = txtList[1]
+checkForOverLap(primes, happy)

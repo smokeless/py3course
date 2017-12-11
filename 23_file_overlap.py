@@ -36,9 +36,9 @@ def checkForOverLap(f1: str, f2: str)->str:
         for i in fileOne:
             if i in fileTwo:
                 newList.append(i)
-
-
-
+    list(set(newList))
+    overLap = ''.join(newList)
+    return overLap
 
 
 urls    = ['http://www.practicepython.org/assets/primenumbers.txt',
@@ -47,4 +47,5 @@ urls    = ['http://www.practicepython.org/assets/primenumbers.txt',
 txtList = getTextFromSiteList(urls[0], urls[1])
 primes  = txtList[0]
 happy   = txtList[1]
-checkForOverLap(primes, happy)
+overLap = checkForOverLap(primes, happy)
+print(overLap)

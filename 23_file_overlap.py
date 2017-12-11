@@ -32,7 +32,7 @@ def checkForOverLap(f1: str, f2: str)->str:
         if i in fileTwo:
             newList.append(i)
 
-    list(set(newList))
+    overLap = list(set(newList)).sort()
     overLap = '\n'.join(newList)
     return overLap
 

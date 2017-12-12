@@ -29,8 +29,17 @@ def getInput()->int:
         print('Please input an integer.')
     return int(someInt)
 
+
 def drawBoard(boardSize: int ):
-    print('toot')
+    horizon = ' --- '
+    vert    = '|    '
+    horizon = horizon * boardSize
+    vert    = vert    * (boardSize + 1)
+    for i in range(boardSize):
+        print(horizon)
+        if i != boardSize:
+            print(vert)
+    print(horizon)
 
 uIn = getInput()
 drawBoard(uIn)

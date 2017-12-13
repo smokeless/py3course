@@ -23,7 +23,7 @@ try to find the optimal strategy!
 '''
 
 def buildNewRange(myGuess: int, uIn: str = ''):
-    newNumberRange = range
+    newNumberRange = ''
     if uIn == 'l':
         newNumberRange = range(myGuess, 101)
     elif uIn == 'h':
@@ -50,7 +50,8 @@ guessesMade = 1
 workingRange = range(1, 101)
 myGuess = 50
 gameOver = False
-print('I guess:', 50)
+print('My guess is:', myGuess)
+
 while not gameOver:
     print('Enter h for high, l for low, c for correct')
     uIn = getInput()
@@ -62,6 +63,8 @@ while not gameOver:
             print('I made:', guessesMade, 'guess.')
             print('My incredible computer brain has defeated you!')
         raise SystemExit
+
     newRange = (buildNewRange(myGuess, uIn))
     myGuess = makeGuess(newRange)
+    print('My guess is:', myGuess)
     guessesMade += 1

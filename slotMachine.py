@@ -1,15 +1,15 @@
 import random
 
-def getNumbers():
+def getNumbers(difficulty):
     symbols = ['!', '#', '$', '&', '*']
     selections = []
-    for i in range(1, 4):
+    for i in range(difficulty):
         selections.append(random.choice(symbols))
 
     return selections
 
-yourRoll = getNumbers()
+yourRoll = getNumbers(30)
 
 for i in yourRoll:
     print(i, end=' ')
-print()
+

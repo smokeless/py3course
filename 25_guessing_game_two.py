@@ -22,20 +22,6 @@ try to find the optimal strategy!
 (We’ll talk about what is the optimal one next week with the solution.)
 '''
 
-def buildNewRange(myGuess: int, uIn: str = ''):
-    newNumberRange = ''
-    if uIn == 'l':
-        newNumberRange = range(myGuess, 101)
-    elif uIn == 'h':
-        newNumberRange = range(1, myGuess)
-    else:
-        newNumberRange = range(1, 101)
-
-    return newNumberRange
-
-def makeGuess(numberRange):
-    return int(max(numberRange)/2)
-
 def getInput()->str:
     uIn = input('>> ')
     while uIn != 'c' and uIn != 'l' and uIn != 'h':
@@ -47,8 +33,8 @@ print('You think of a number between 1 and 100 and I will guess it.')
 print('Enter h for high, l for low, c for correct')
 
 guessesMade = 1
-workingRange = range(1, 101)
-myGuess = 50
+workingList= list(range(1, 101))
+myGuess = workingList[int(len(workingList)/2)]
 gameOver = False
 print('My guess is:', myGuess)
 
@@ -64,7 +50,6 @@ while not gameOver:
             print('My incredible computer brain has defeated you!')
         raise SystemExit
 
-    newRange = (buildNewRange(myGuess, uIn))
-    myGuess = makeGuess(newRange)
-    print('My guess is:', myGuess)
+    if uIn == 'h':
+
     guessesMade += 1

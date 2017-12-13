@@ -33,8 +33,7 @@ def computer_guess():
     guessesMade = 0
     low = 1
     high = 100
-    # This will make the computer's first guess random
-    guess = randint(1,100)
+    guess = randint(1,100) #rando first guess
     uIn = ''
     while uIn != 'c':
         print("The computer takes a guess...", guess)
@@ -48,6 +47,6 @@ def computer_guess():
         guess = (low+high)//2
 
     print("The computer guessed", guess, "and it was correct!")
-    print('It only took my cold calculating silicone', guessesMade, 'tries.')
+    print('It only took my hot calculating silicone', guessesMade, 'tries.')
 
 computer_guess()

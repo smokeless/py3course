@@ -22,34 +22,32 @@ try to find the optimal strategy!
 (We’ll talk about what is the optimal one next week with the solution.)
 '''
 
-def getInput()->str:
+from random import randint
+
+def getInput():
+    print('(h)igh, (l)ow, (c)orrect')
     uIn = input('>> ')
-    while uIn != 'c' and uIn != 'l' and uIn != 'h':
-        uIn = input('c, h, or l>> ')
     return uIn
 
+def computer_guess():
+    guessesMade = 0
+    low = 1
+    high = 100
+    # This will make the computer's first guess random
+    guess = randint(1,100)
+    uIn = ''
+    while uIn != 'c':
+        print("The computer takes a guess...", guess)
+        guessesMade += 1
+        uIn = getInput()
+        if uIn == 'h':
+            high = guess
+        elif uIn == 'l':
+            low = guess + 1
 
-print('You think of a number between 1 and 100 and I will guess it.')
-print('Enter h for high, l for low, c for correct')
+        guess = (low+high)//2
 
-guessesMade = 1
-workingList= list(range(1, 101))
-myGuess = workingList[int(len(workingList)/2)]
-gameOver = False
-print('My guess is:', myGuess)
+    print("The computer guessed", guess, "and it was correct!")
+    print('It only took my cold calculating silicone', guessesMade, 'tries.')
 
-while not gameOver:
-    print('Enter h for high, l for low, c for correct')
-    uIn = getInput()
-    if uIn == 'c':
-        gameOver = True
-        if guessesMade > 1:
-            print('I made:', guessesMade, 'guesses.')
-        else:
-            print('I made:', guessesMade, 'guess.')
-            print('My incredible computer brain has defeated you!')
-        raise SystemExit
-
-    if uIn == 'h':
-
-    guessesMade += 1
+computer_guess()

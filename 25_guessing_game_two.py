@@ -35,14 +35,15 @@ def buildNewRange(myGuess: int, uIn: str = '')->range:
 
     return newNumberRange
 
-
+def makeGuess(numberRange):
+    return int(max(numberRange)/2)
 
 def getInput()->str:
     uIn = input('>> ')
-    while uIn != 'h' and uIn != 'l' and uIn != 'c':
-        print('h for high, l for low, c for correct')
-        uIn = input('>> ')
+    while uIn != 'c' and uIn != 'l' and uIn != 'h':
+        uIn = input('c, h, or l>> ')
     return uIn
+
 
 
 
@@ -52,6 +53,11 @@ print('Enter h for high, l for low, c for correct')
 guessesMade = 1
 workingRange = range(1, 101)
 myGuess = 50
-print('I guess: ', 50)
-uIn = getInput()
-
+gameOver = False
+print('I guess:', 50)
+userInput = getInput()
+#while not gameOver:
+#    uIn = getInput()
+#    newRange = (buildNewRange(myGuess, uIn))
+#    myGuess = makeGuess(newRange)
+#    guessesMade += 1

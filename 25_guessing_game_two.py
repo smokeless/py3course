@@ -21,12 +21,10 @@ An alternate strategy might be to guess 50
 try to find the optimal strategy!
 (We’ll talk about what is the optimal one next week with the solution.)
 '''
-def buildNewRange(myGuess: int, uIn: str = '')->range:
+
+def buildNewRange(myGuess: int, uIn: str = ''):
     newNumberRange = range
-    if uIn == 'c':
-        print('huzzah, I have won.')
-        exit(0)
-    elif uIn == 'l':
+    if uIn == 'l':
         newNumberRange = range(myGuess, 101)
     elif uIn == 'h':
         newNumberRange = range(1, myGuess)
@@ -45,8 +43,6 @@ def getInput()->str:
     return uIn
 
 
-
-
 print('You think of a number between 1 and 100 and I will guess it.')
 print('Enter h for high, l for low, c for correct')
 
@@ -55,9 +51,17 @@ workingRange = range(1, 101)
 myGuess = 50
 gameOver = False
 print('I guess:', 50)
-userInput = getInput()
-#while not gameOver:
-#    uIn = getInput()
-#    newRange = (buildNewRange(myGuess, uIn))
-#    myGuess = makeGuess(newRange)
-#    guessesMade += 1
+while not gameOver:
+    print('Enter h for high, l for low, c for correct')
+    uIn = getInput()
+    if uIn == 'c':
+        gameOver = True
+        if guessesMade > 1:
+            print('I made:', guessesMade, 'guesses.')
+        else:
+            print('I made:', guessesMade, 'guess.')
+            print('My incredible computer brain has defeated you!')
+        raise SystemExit
+    newRange = (buildNewRange(myGuess, uIn))
+    myGuess = makeGuess(newRange)
+    guessesMade += 1

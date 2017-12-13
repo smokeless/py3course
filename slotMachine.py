@@ -9,13 +9,17 @@ def getRoll(difficulty=3):
     return selections
 
 def checkRoll(roll):
-
+    roll = set(roll)
+    if len(roll) == 1:
+        return True
+    else:
+        return False
 
 yourRoll = getRoll()
 
 for i in yourRoll:
     print(i, end=' ')
-
+print()
 if checkRoll(yourRoll):
     print('You win!')
 else:

@@ -21,11 +21,37 @@ An alternate strategy might be to guess 50
 try to find the optimal strategy!
 (We’ll talk about what is the optimal one next week with the solution.)
 '''
-def guess():
-    '''Guess based on high low input'''
-    guessRange = 100
-    guess = 50
+def buildNewRange(myGuess: int, uIn: str = '')->range:
+    newNumberRange = range
+    if uIn == 'c':
+        print('huzzah, I have won.')
+        exit(0)
+    elif uIn == 'l':
+        newNumberRange = range(myGuess, 101)
+    elif uIn == 'h':
+        newNumberRange = range(1, myGuess)
+    else:
+        newNumberRange = range(1, 101)
+
+    return newNumberRange
+
+
+
+def getInput()->str:
+    uIn = input('>> ')
+    while uIn != 'h' and uIn != 'l' and uIn != 'c':
+        print('h for high, l for low, c for correct')
+        uIn = input('>> ')
+    return uIn
 
 
 
 print('You think of a number between 1 and 100 and I will guess it.')
+print('Enter h for high, l for low, c for correct')
+
+guessesMade = 1
+workingRange = range(1, 101)
+myGuess = 50
+print('I guess: ', 50)
+uIn = getInput()
+
